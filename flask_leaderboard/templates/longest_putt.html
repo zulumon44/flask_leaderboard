@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Longest Putt Leaderboard</title>
+</head>
+<body>
+    <h1>Longest Putt Leaderboard</h1>
+    {% if leaderboard == [] %}
+    <p>No putts have been added yet.</p>
+    {% endif %}
+
+    {% if is_authenticated %}
+    <a href="/add_putt">Add a putt</a>
+    {% endif %}
+
+    <table id="putt" class="table table-striped">
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Name</th>
+                <th>Distance</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for player in leaderboard %}
+            <tr>
+                <td>{{ loop.index }}</td>
+                <td>{{ player.name }}</td>
+                <td>{{ player.putt_distance }} meters</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</body>
+</html>

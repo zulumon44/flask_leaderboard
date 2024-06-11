@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up</title>
+    <style>
+      h1 {
+        color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+      </ul>
+    </nav>
+    <h1>Add a putt</h1>
+    {% if is_authenticated %}
+    <form action="#" method="post">
+      <label for="name">Name:</label>
+      <input type="text" name="name" />
+      <label for="putt_distance">Putt Distance:</label>
+      <input type="number" step=".01" min="0" name="putt_distance" />
+      <button type="submit">Submit</button>
+    </form>
+    {% else %}
+    <p>You must be logged in to add a putt.</p>
+    <a href="/login">Login</a>
+    {% endif %}
+  </body>
+</html>
